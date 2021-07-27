@@ -1,6 +1,8 @@
 package entities;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -12,17 +14,18 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Date dataNascimento;
+    private String email;
     private String telefone;
     private String endereco;
 
+    public Usuario() {
+    }
 
-    public Usuario(String nome, Date dataNascimento, String telefone, String endereco) {
+    public Usuario(String nome, String email, String telefone, String endereco) {
         this.nome = nome;
-        this.dataNascimento = dataNascimento;
+        this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
-
     }
 
     public Long getId() {
@@ -41,12 +44,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTelefone() {
